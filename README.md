@@ -1,0 +1,5 @@
+# SmsForwarderAutomatic
+使用serverchan的服务自动将进行短信转发
+
+使用IDEA进行编写
+请自行申请serverchan的推送连接
