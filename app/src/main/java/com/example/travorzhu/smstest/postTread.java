@@ -1,12 +1,8 @@
 package com.example.travorzhu.smstest;
 
-import android.widget.Toast;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 
 /**
@@ -14,9 +10,9 @@ import java.net.URL;
  */
 
 public class postTread extends Thread{
-    String title;
-    String text;
-    String urls;
+    private String title;
+    private String text;
+    private String urls;
 
     public postTread(String title, String text, String urls) {
         this.title = title;
@@ -28,6 +24,7 @@ public class postTread extends Thread{
         System.out.println("开始转发");
         try {
             String parm="text=\""+title+"\"&desp=\" "+text+" \"";
+            System.out.println(parm);
             URL url=new URL(urls);
             HttpURLConnection connection= (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
@@ -42,10 +39,6 @@ public class postTread extends Thread{
             else {
                 System.out.println("短信转发失败");
             }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (ProtocolException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
